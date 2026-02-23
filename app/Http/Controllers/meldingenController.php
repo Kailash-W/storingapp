@@ -17,10 +17,10 @@ $query = "INSERT INTO meldingen (attractie, capaciteit, melder, type)
 VALUES(:attractie, :capaciteit, :melder, type)";
 
 //3. Prepare
-$statement = $conn->prepare(query: $query);
+$statement = $conn->prepare($query);
 
 //4. Execute
-$statement->execute(params: [
+$statement->execute([
  ":attractie" => $attractie,
  ":capaciteit" => $capaciteit,
  ":melder" => $melder,
