@@ -6,9 +6,6 @@ $capaciteit = $_POST['capaciteit'];
 $melder = $_POST['melder'];
 $type = "";
 
-
-echo $attractie . " / " . $capaciteit . " / " . $melder;
-
 //1. Verbinding
 require_once '../../../config/conn.php';
 
@@ -26,5 +23,7 @@ $statement->execute(params: [
  ":melder" => $melder,
  ":type" => $type,
 ]);
+
+header(header: "Location: ../meldingen/index.php?msg=Melding opgeslagen");
 
 
