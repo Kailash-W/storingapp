@@ -23,4 +23,4 @@ $statement->execute(params: [
  ":type" => $type,
 ]);
 
-$items = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
+
