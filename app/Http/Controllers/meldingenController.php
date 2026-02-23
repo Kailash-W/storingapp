@@ -21,7 +21,8 @@ $statement = $conn->prepare(query: $query);
 //4. Execute
 $statement->execute(params: [
  ":attractie" => $attractie,
- ":type" => $type,
+ ":capaciteit" => $capaciteit,
+ ":melder" => $melder,
 ]);
 
 
