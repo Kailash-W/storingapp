@@ -15,12 +15,12 @@ $query = "INSERT INTO meldingen (attractie, type)
 VALUES(:attractie, :type)";
 
 //3. Prepare
-$statement = $conn->prepare($query);
+$statement = $conn->prepare(query: $query);
 
 //4. Execute
-$statement->execute([
+$statement->execute(params: [
  ":attractie" => $attractie,
  ":type" => $type,
 ]);
 
-$items = $statement->fetchAll(PDO::FETCH_ASSOC);
+$items = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
