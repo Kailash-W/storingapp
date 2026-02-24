@@ -24,6 +24,6 @@ $statement->execute(params: [
  ":type" => $type,
 ]);
 
-header(header: "Location: ../meldingen/index.php?msg=Melding opgeslagen");
+header(header: "Location: ../../../resources/views/meldingen/index.php?msg=Melding opgeslagen");
 
 
