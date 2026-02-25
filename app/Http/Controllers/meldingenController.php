@@ -6,12 +6,40 @@ $capaciteit = $_POST['capaciteit'];
 $melder = $_POST['melder'];
 $type = $_POST['type'];
 $overige = $_POST['overige'];
+$errors = array();
 
 if(isset($_POST['prioriteit'])) {
     $prioriteit = true;
 }
 else {
     $prioriteit = false;
+}
+
+$attractie = $_POST['attractie'];
+if(empty($attractie))
+{
+ $errors[] = "Vul de attractie-naam in.";
+}
+$capaciteit = $_POST['capaciteit'];
+if(!is_numeric(value: $capaciteit))
+{
+ $errors[] = "Vul voor capaciteit een geldig getal in.";
+}
+$melder = $_POST['melder'];
+if(empty($melder))
+{
+ $errors[] = "Vul de melder naam in.";
+}
+$type = $_POST['type'];
+if(empty($type))
+{
+ $errors[] = "Vul de type-achtbaan in.";
+}
+
+if(isset($errors))
+{
+ print_r(value: $errors);
+ die();
 }
 
 
@@ -34,6 +62,7 @@ $statement->execute(params: [
 ":prioriteit" => $prioriteit,
 ":overige" => $overige,
 ]);
+
 
 header(header: "Location: ../../../resources/views/meldingen/index.php?msg=Melding opgeslagen");
 
