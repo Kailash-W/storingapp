@@ -36,9 +36,9 @@ if(empty($type))
  $errors[] = "Vul de type-achtbaan in.";
 }
 
-if(isset($errors))
+if(count($errors) > 0)
 {
- print_r(value: $errors);
+ print_r($errors);
  die();
 }
 
