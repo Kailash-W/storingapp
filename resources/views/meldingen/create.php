@@ -50,7 +50,7 @@
             </div>
             <div>
                 <label for="overige">Overige info:</label>
-                <textarea name="overige" id="overige" class="form-input" rows="4"></textarea>
+                <textarea name="overige" id="overige" class="form-input"></textarea>
             </div>
 
             <input type="submit" value="Verstuur melding">

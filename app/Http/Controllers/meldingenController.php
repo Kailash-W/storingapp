@@ -32,7 +32,7 @@ $statement->execute(params: [
 ":melder" => $melder,
 ":type" => $type,
 ":prioriteit" => $prioriteit,
-":overige" => $overige
+":overige" => $overige,
 ]);
 
 header(header: "Location: ../../../resources/views/meldingen/index.php?msg=Melding opgeslagen");
