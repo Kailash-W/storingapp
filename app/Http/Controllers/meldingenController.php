@@ -5,6 +5,7 @@ $attractie = $_POST['attractie'];
 $capaciteit = $_POST['capaciteit'];
 $melder = $_POST['melder'];
 $type = $_POST['type'];
+$overige = $_POST['overige'];
 
 if(isset($_POST['prioriteit'])) {
     $prioriteit = true;
@@ -12,7 +13,7 @@ if(isset($_POST['prioriteit'])) {
 else {
     $prioriteit = false;
 }
-$overige = $_POST['overige'];
+
 
 //1. Verbinding
 require_once '../../../config/conn.php';
@@ -26,10 +27,10 @@ $statement = $conn->prepare(query: $query);
 
 //4. Execute
 $statement->execute(params: [
- ":attractie" => $attractie,
- ":capaciteit" => $capaciteit,
- ":melder" => $melder,
- ":type" => $type,
+":attractie" => $attractie,
+":capaciteit" => $capaciteit,
+":melder" => $melder,
+":type" => $type,
 ":prioriteit" => $prioriteit,
 ":overige" => $overige
 ]);
