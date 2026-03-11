@@ -6,13 +6,16 @@ $capaciteit = $_POST['capaciteit'];
 $melder = $_POST['melder'];
 $type = $_POST['type'];
 $overige = $_POST['overige'];
+$action = $_POST['action'];
 $errors = array();
 
+
+
 if(isset($_POST['prioriteit'])) {
-    $prioriteit = true;
+    $prioriteit = 1;
 }
 else {
-    $prioriteit = false;
+    $prioriteit = 0;
 }
 
 $attractie = $_POST['attractie'];

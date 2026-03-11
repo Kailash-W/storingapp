@@ -20,8 +20,55 @@
             echo "<div class='msg'>" . $_GET['msg'] . "</div>";
         } ?>
 
-        <div style="height: 300px; background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">(hier komen de storingsmeldingen)</div>
+        <?php require_once '../../../config/conn.php';
+            $query = "SELECT * FROM meldingen";
+            $statement = $conn->prepare(query: $query);
+            $statement->execute();
+            $meldingen = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
+        ?>
+
+
+        <div style="height: 300px; background: #ededed; display: flex; justify-content: center; align-items: center; color: #666666;">
+        <table>
+            <tr>
+                <th>Naam Attractie</th>
+                <th>Type</th>
+                <th>Melder</th>
+                <th>Overige info</th>
+                <th>Prioriteit</th>
+                <th>Capaciteit</th>
+                <th>Gemeld_op</th>
+                <th>Aanpassen</th>
+            </tr>
+            <?php foreach ($meldingen as $melding): ?>
+                <tr>
+                    <td><?php echo $melding['attractie'] ?></td>
+                    <td><?php echo $melding['type'] ?></td>
+                    <td><?php echo $melding['melder'] ?></td>
+                    <td><?php echo $melding['overige'] ?></td>
+
+                    <td>
+                        <?php   
+                         if($melding['prioriteit'] == 1){
+                            echo "Ja";
+                         }
+                         else {
+                            echo "Nee";
+                         }   
+                                          
+                        ?>
+                    </td>
+                    <td><?php echo $melding['capaciteit'] ?></td>
+                    <td><?php echo $melding['gemeld_op'] ?></td>
+                    <td><a href="edit.php?id=<?php echo $melding['id']?>">Aanpassen</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+
+        </div>
     </div>
+
+
 
 </body>
 
